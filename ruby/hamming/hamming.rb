@@ -5,10 +5,9 @@ class Hamming
     validate_inputs(strand_one, strand_two)
 
     strand_length = strand_one.length
-
-    (0...strand_length).to_a.collect { |index|
-      (strand_one[index] <=> strand_two[index]).abs
-    }.inject(:+).to_i
+    strand_length.times.inject(0) do |sum, index|
+      sum + (strand_one[index] <=> strand_two[index]).abs
+    end
   end
 
   def self.validate_inputs(strand_one, strand_two)
