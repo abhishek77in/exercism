@@ -6,6 +6,7 @@ class Hamming
     hamming_distance(strand_one, strand_two)
   end
 
+  private
   def self.hamming_distance(strand_one, strand_two)
     strand_length = strand_one.length
     strand_length.times.inject(0) do |sum, index|
